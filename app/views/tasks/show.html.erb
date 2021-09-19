@@ -1,0 +1,22 @@
+<h2>The tasks for this resolution are<% @task %></h2>
+<% for task in @resolution.tasks %>
+
+<p>
+  <strong>Task_name:</strong>
+  <%= @task.name%>
+</p>
+
+<p>
+  <strong>Task_details:</strong>
+  <%= @task.task_details %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @task.frequency %>
+</p>
+<% end %>
+<%= link_to 'Show resolution', resolutions_path (@resolution) %> |
+<%= link_to 'Tasks', resolution_tasks_path (@resolution) %> |
+<%= link_to 'Edit', edit_resolution_task_url(@resolution, @task) %> |
+<%= link_to 'Back', resolution_tasks_path(@resolution) %>

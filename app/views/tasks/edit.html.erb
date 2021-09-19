@@ -1,0 +1,6 @@
+<h1>Editing task</h1>
+
+<%= render 'form', task: @task %>
+
+<%= link_to 'Show', [@resolution, @task] %> |
+<%= link_to 'Back', resolution_tasks_path(@resolution) %>

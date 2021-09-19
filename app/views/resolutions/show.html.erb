@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resolution.title %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @resolution.details %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @resolution.end_date %>
+</p>
+
+
+<h3>The task/tasks set to achieve this resolution are<% @task %></h3>
+<% for task in @resolution.tasks %>
+
+<p>
+  <strong>Task_name:</strong>
+  <%= task.name%>
+</p>
+
+<p>
+  <strong>Task_details:</strong>
+  <%= task.task_details %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= task.frequency %>
+</p>
+<% end %>
+<%= link_to 'Edit', edit_resolution_path(@resolution) %> |
+<%= link_to 'Add task', resolution_tasks_path(@resolution) %>
+<%= link_to 'Back', resolutions_path %>
