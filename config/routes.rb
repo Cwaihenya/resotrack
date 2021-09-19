@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-}
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
   devise_scope :user do
 
   authenticated :user do
@@ -15,12 +16,14 @@ end
   resources :resolutions do
     resources :tasks
 
-  end
+
   resources :users
+  resources :conversations do
+     resources :messages
+end
 
-
-  root to: "devise/sessions#new"
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
 end
 end
